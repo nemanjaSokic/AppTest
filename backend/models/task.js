@@ -10,8 +10,19 @@ var task = new Schema({
         type: String
     },
     status: {
-        type: String,
-        default: 'Open'
+        type: String
+    },
+    owner: {
+        type: Schema.Types.ObjectId, ref: 'User'
+    },
+    assignee: {
+        type: Schema.Types.ObjectId, ref: 'User'
+    },
+    created: {
+        type: Date
+    },
+    updated: {
+        type: Date
     }
 });
 

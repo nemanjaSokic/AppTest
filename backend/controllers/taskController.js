@@ -33,20 +33,11 @@ module.exports = function(router){
     });
 
     router.route('/tasks/update/:id').put((req,res) => {
-        Task.findById(req.params.id, (err,task) => {
+        Task.findByIdAndUpdate(req.params.id,req.body, (err,task) => {
             if(!task)
                 return next(new Error('Could not load document.'));
             else{
-                task.title = req.body.title;
-                task.description = req.body.description;
-                task.status = req.body.status;
-
-                task.save().then(task => {
-                    res.json('Update done!');
-
-                }).catch(err => {
-                    res.status(400).send('Update failed');
-                });
+                res.json('Update done!');
             }
         });
     });

@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import mainController from './controllers/mainController'
+import taskCtrl from './controllers/taskController';
+import userCtrl from './controllers/userController';
 
 //MongoDB
 var mongoose = require('mongoose');
@@ -25,6 +26,7 @@ mongoose.connection.once('open', function(){
 
 app.use('/', router);
 
-mainController(router);
+taskCtrl(router);
+userCtrl(router);
 
 app.listen(4000, () => console.log('Express server runing on 4000 port!'));
