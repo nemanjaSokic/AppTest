@@ -4,11 +4,12 @@ module.exports = function(router){
 
     router.route('/tasks').get((req,res) => {
         Task.find((err,tasks) => {
-            if(err)
+            if(err){
                 console.log(err);
-            else
+            }else{
                 res.json(tasks);
-        });
+            }
+        }).populate('owner').populate('assignee');
     });
 
     router.route('/tasks/:id').get((req,res) => {
@@ -18,7 +19,7 @@ module.exports = function(router){
             }else{
                 res.json(task);
             }
-        });
+        }).populate('owner').populate('assignee');
     });
 
     router.route('/tasks/add').post((req,res) => {

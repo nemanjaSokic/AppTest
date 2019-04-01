@@ -1,3 +1,40 @@
-<p>
-  create works!
-</p>
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Create a New Task</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Task title" formControlName="title" #title>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Description" formControlName="description" #description></textarea>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+          <mat-select placeholder="Status" formControlName="status" #status>
+            <mat-option value="backlog">backlog</mat-option>
+            <mat-option value="for development">for development</mat-option>
+            <mat-option value="in progress">in progress</mat-option>
+            <mat-option value="done">done</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <mat-select placeholder="Owner" formControlName="owner" required #owner>
+            <mat-option *ngFor="let user of users" value="{{user._id}}">{{user.fullName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <mat-select placeholder="Assignee" formControlName="assignee" required #assignee>
+            <mat-option *ngFor="let user of users" value="{{user._id}}">{{user.fullName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>
+      <button type="submit" (click)="addTask(title.value,description.value,status.value,owner.value,assignee.value)" [disabled]="owner.value == null || assignee.value == null" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>

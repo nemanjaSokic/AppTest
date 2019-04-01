@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { MatToolbarModule } from '@angular/material';
+import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatButtonModule, MatCardModule, MatTableModule, MatDividerModule, MatSnackBarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
 
-import { TaskService } from './task.service';
+import { TaskService } from './services/task.service';
+import { UserService } from './services/user.service';
 
 const routes: Routes = [
   { path: 'create', component:CreateComponent},
@@ -34,9 +36,20 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    MatToolbarModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSnackBarModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
