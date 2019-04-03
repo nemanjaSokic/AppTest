@@ -41,7 +41,7 @@ export class ListComponent implements OnInit {
   editTask(id){
     this.router.navigate([`/edit/${id}`]);
   }
-x
+
   deleteTask(id){
     this.taskService.deleteTask(id).subscribe(() => {
       this.fetchTasks();
