@@ -10,9 +10,10 @@ table {
 .account-button{
     float: right;
 }
-.hello-class{
-    color: red;
+.hello-class,h3,h4{
+    color:blueviolet;
     text-align: center;
+    margin: 0 auto;
 }
 .mat-logout-right{
     float: right;

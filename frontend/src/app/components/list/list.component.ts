@@ -17,6 +17,7 @@ import { AuthService } from '../../auth.service';
 export class ListComponent implements OnInit {
 
   userName :String;
+  userRole: String;
   tasks: Task[];
   displayedColumn = ['title','description', 'status', 'owner', 'assignee', 'actions']
 
@@ -58,6 +59,7 @@ export class ListComponent implements OnInit {
     let accountId = this.authService.getAccountIdFromToken();
     this.userService.getUserById(accountId).subscribe((data: User) => {
       this.userName = data.fullName;
+      this.userRole = data.role;
     });
   }
 }
