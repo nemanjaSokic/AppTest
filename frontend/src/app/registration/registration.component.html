@@ -17,7 +17,7 @@
         <input matInput placeholder="Password" formControlName="password" #password>
       </mat-form-field>
       <mat-form-field class="field-full-width">
-          <mat-select placeholder="Role" formControlName="status" #role>
+          <mat-select placeholder="Role" formControlName="role" #role>
             <mat-option value="manager">Manager</mat-option>
             <mat-option value="developer">Developer</mat-option>
             <mat-option value="consultant">Consultant</mat-option>
@@ -26,7 +26,7 @@
       </mat-form-field>
       <mat-divider></mat-divider>
       <br><br>
-      <button mat-raised-button color="accent" routerLink="/list">Back</button>
+      <button mat-raised-button color="accent" routerLink="/login">Back</button>
       <button type="submit" (click)="register(fullName.value,email.value,password.value,role.value)" mat-raised-button color="primary">Register</button>
     </form>
   </mat-card>
