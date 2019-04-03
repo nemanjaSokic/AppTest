@@ -4,3 +4,16 @@ table {
 .mat-column-right{
     text-align: center;
 }
+.create-button{
+    float: left;
+}
+.account-button{
+    float: right;
+}
+.hello-class{
+    color: red;
+    text-align: center;
+}
+.mat-logout-right{
+    float: right;
+}

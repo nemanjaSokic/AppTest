@@ -16,12 +16,14 @@ import { AuthService } from '../../auth.service';
 })
 export class ListComponent implements OnInit {
 
+  userName :String;
   tasks: Task[];
   displayedColumn = ['title','description', 'status', 'owner', 'assignee', 'actions']
 
   constructor(private authService: AuthService, private taskService: TaskService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    this.getAccount();
     this.fetchTasks();
   }
 
@@ -34,12 +36,16 @@ export class ListComponent implements OnInit {
       .getTasks()
       .subscribe((data: Task[]) => {
         this.tasks = data;
-        console.log('Data requested...');
       })
   }
 
   editTask(id){
     this.router.navigate([`/edit/${id}`]);
+  }
+
+  editAccount(){
+    let accountId = this.authService.getAccountIdFromToken();
+    this.router.navigate([`/account/${accountId}`]);
   }
 
   deleteTask(id){
@@ -48,4 +54,10 @@ export class ListComponent implements OnInit {
     });
   }
 
+  getAccount(){
+    let accountId = this.authService.getAccountIdFromToken();
+    this.userService.getUserById(accountId).subscribe((data: User) => {
+      this.userName = data.fullName;
+    });
+  }
 }

@@ -1,11 +1,13 @@
-<div class="mat-logout-right">
-  <button mat-raised-button mat-button color="error" (click)="logout()">Logout</button>
+<div>
+  <div class="mat-logout-right"><button mat-raised-button mat-button color="error" (click)="logout()">Logout</button></div>
+  <div class="hello-class">Hello {{this.userName}}</div>
 </div>
 <mat-divider></mat-divider>
 <div>
   <br>
   <mat-card>
-    <button mat-raised-button color="primary" routerLink="/create">Create New Task</button>
+    <button class="create-button" mat-raised-button color="primary" routerLink="/create">Create New Task</button>
+    <button class="account-button" mat-raised-button color="warn" (click)="editAccount()">Account View</button>
     <br><br>
     <mat-divider></mat-divider>
     <br>

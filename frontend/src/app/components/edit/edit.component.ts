@@ -19,7 +19,12 @@ export class EditComponent implements OnInit {
   updateForm: FormGroup;
   users: User[];
 
-  constructor(private userService: UserService, private taskService: TaskService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) {
+  constructor(private userService: UserService,
+    private taskService: TaskService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder) {
     this.createForm();
   }
 

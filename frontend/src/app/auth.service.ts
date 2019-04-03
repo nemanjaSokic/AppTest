@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router} from '@angular/router';
+import * as JWTDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,21 @@ export class AuthService {
 
   public get loggedIn(): boolean {
     return (localStorage.getItem('access_token') !== null);
+  }
+
+  getAccountIdFromToken(){
+    let token = localStorage.getItem('access_token');
+    if (token == null) return null;
+    let decodedToken = this.getDecodedAccessToken(token);
+    return decodedToken.userID;
+  }
+
+  getDecodedAccessToken(token: string): any {
+    try{
+        return JWTDecode(token);
+    }
+    catch(Error){
+        return null;
+    }
   }
 }

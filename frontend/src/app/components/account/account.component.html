@@ -2,11 +2,11 @@
   <br>
   <mat-card>
     <section class="mat-typography">
-      <h3>Registration</h3>
+      <h3>Account info</h3>
     </section>
     <mat-divider></mat-divider>
     <br>
-    <form [formGroup]="registerForm" class="register-form">
+    <form [formGroup]="updateForm" class="update-form">
       <mat-form-field class="field-full-width">
         <input matInput placeholder="First name and last name" formControlName="fullName" #fullName>
       </mat-form-field>
@@ -26,8 +26,8 @@
       </mat-form-field>
       <mat-divider></mat-divider>
       <br><br>
-      <button mat-raised-button color="accent" routerLink="/login">Back</button>
-      <button type="submit" (click)="register(fullName.value,email.value,password.value,role.value)" mat-raised-button color="primary">Register</button>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>
+      <button type="submit" (click)="updateAccount(fullName.value,email.value,password.value,role.value)" mat-raised-button color="primary">Update account</button>
     </form>
   </mat-card>
 </div>
