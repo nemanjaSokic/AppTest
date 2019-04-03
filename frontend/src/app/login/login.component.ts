@@ -9,8 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  public email: string;
-  public password: string;
+
   createForm: FormGroup;
 
   constructor(private auth: AuthService, private router: Router, private fb:FormBuilder) {
@@ -27,5 +26,8 @@ export class LoginComponent {
         result => this.router.navigate(['list']),
         err => alert("Invalid credentials")
       );
+  }
+  registration(){
+    this.router.navigate([`/registration`]);
   }
 }

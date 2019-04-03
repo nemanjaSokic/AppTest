@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 
 import { TaskService } from './services/task.service';
 import { UserService } from './services/user.service';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserService } from './services/user.service';
     ListComponent,
     CreateComponent,
     EditComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
