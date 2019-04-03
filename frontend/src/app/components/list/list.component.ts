@@ -7,6 +7,7 @@ import { TaskService } from '../../services/task.service';
 
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-list',
@@ -18,10 +19,14 @@ export class ListComponent implements OnInit {
   tasks: Task[];
   displayedColumn = ['title','description', 'status', 'owner', 'assignee', 'actions']
 
-  constructor(private taskService: TaskService, private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private taskService: TaskService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.fetchTasks();
+  }
+
+  logout(){
+    this.authService.logout();
   }
 
   fetchTasks() {
